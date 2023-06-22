@@ -1,0 +1,13 @@
+
+#recordButton {
+    right:50px;
+    cursor: pointer;
+  }
+
+.record{
+    background-color: #1bc37d;
+}
+
+.stop{
+    background-color: #e72929b5;
+}

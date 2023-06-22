@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #1f2937;
+      padding: 1em;
+    }
+
+    .dark .form-input,
+    .dark .textarea,
+    .dark .border-gray-700,
+    .dark .bg-gray-800,
+    .dark .text-gray-100 {
+      background-color: #374151;
+    }
+
+    #companyInput.form-input:focus-visible,#roleInput.form-input:focus-visible {
+    border-color: #93C5FD !important; /* Update the border color as desired */
+    outline: none;
+    box-shadow: none;
+  }
+  </style>
+</head>
+
+<body class="dark">
+  <div class="container mx-auto py-8">
+    <div class="flex justify-center items-center">
+      <h1 class="text-2xl font-bold text-white">Prompts</h1>
+    </div>
+
+    <div class="mt-16 overflow-y-auto max-h-80 max-w-6xl items-center mx-auto">
+      <ul id="itemList" class="divide-y divide-gray-500">
+        <!-- List items will be dynamically added here -->
+      </ul>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-center items-center mt-16">
+      <div class="flex flex-col items-center mb-4 md:mb-0 md:mr-4">
+        <input id="roleInput" type="text" placeholder="Role" class="form-input rounded p-2 bg-gray-700 text-white">
+      </div>
+      
+      <div class="flex flex-col items-center mb-4 md:mb-0 md:mr-4">
+        <input id="companyInput" type="text" placeholder="Company" class="form-input p-2 rounded bg-gray-700 text-white">
+      </div>
+      
+      <div class="flex flex-col items-center mb-4 md:mb-0 md:ml-4">
+        <button id="addButton" class="px-4 py-2 bg-blue-500 text-white rounded w-24"> Add </button>
+      </div>
+      <div class="flex flex-col items-center mb-4 md:mb-0 md:ml-4">
+        <button id="resetButton" class="px-4 py-2 bg-red-500 text-white rounded w-24">Reset </button>
+      </div>
+    </div>
+    
+
+  </div>
+
+  <!-- Edit Screen -->
+  <div id="editScreen"
+    class="hidden fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-90">
+    <div class="bg-gray-800 p-8 rounded-lg shadow-xl w-9/12 max-w-5xl">
+      <h2 class="text-3xl font-bold text-white mb-6">Edit Item</h2>
+      <form id="editForm">
+        <div class="mb-6">
+          <label for="editrole" class="block text-lg font-medium text-gray-300">Role :</label>
+          <input id="editrole" type="text" class="form-input mt-1 block w-full rounded bg-gray-700 text-white"
+            required>
+        </div>
+        <div class="mb-6">
+          <label for="editCompany" class="block text-lg font-medium text-gray-300">Company :</label>
+          <input id="editCompany" type="text" class="form-input mt-1 block w-full rounded bg-gray-700 text-white"
+            required>
+        </div>
+        <div class="mb-6">
+          <label for="editDescription" class="block text-lg font-medium text-gray-300">Description:</label>
+          <textarea id="editDescription" class="textarea mt-1 block w-full rounded bg-gray-700 text-white" rows="6"
+            required></textarea>
+        </div>
+        <div class="flex justify-end">
+          <button id="saveButton" type="submit" class="px-6 py-3 bg-blue-500 text-white rounded">Save</button>
+          <button id="cancelButton" type="button" class="ml-4 px-6 py-3 bg-gray-500 text-white rounded">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <script src="settings.js"></script>
+</body>
+
+</html>
